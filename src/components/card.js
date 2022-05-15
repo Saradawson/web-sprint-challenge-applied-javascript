@@ -43,6 +43,10 @@ const Card = (article) => {
   imgContainer.appendChild(cardImg);
   cardAuthor.appendChild(cardAuthorName);
 
+  card.addEventListener('click', () => {
+    console.log(cardHeadline);
+  })
+
   return card;
 }
 
@@ -59,7 +63,7 @@ const cardAppender = (selector) => {
   axios.get(`http://localhost:5001/api/articles`)
   .then((res) => {
     console.log(res.data.articles);
-    const articles = [res.data.articles.javascript, res.data.articles.bootstrap, res.data.technology, res.data.articles.jquery, res.data.articles['node.js']];
+    const articles = [res.data.articles.javascript, res.data.articles.bootstrap, res.data.articles.jquery, res.data.articles.node, res.data.articles.technology];
     console.log(articles);
     for(let i = 0; i < articles.length; i++){
       articles[i].forEach(element => {
